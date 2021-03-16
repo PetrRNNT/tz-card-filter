@@ -27,3 +27,22 @@
 .cardItem p {
     display: block;
 }
+
+.cardItem h3::first-letter,
+.cardItem p::first-letter {
+    text-transform: uppercase;
+}
+
+@media(max-width: 929px) {
+    .cardItem {
+        min-width: 265px;
+    }
+}
+
+
+@media(max-width: 480px) {
+    .cardItem {
+        width: 100%;
+        margin-right: 0;
+    }
+}

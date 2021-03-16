@@ -5,8 +5,11 @@ const Card = ({id, name, username, body, title, ...props}) => {
         <div
             className={style.cardItem}
         >
-            <h3>{title}</h3>
-            <p>{body}</p>
+            <div>
+                <h3>{title}</h3>
+                <p>{body}</p>
+            </div>
+            
             <div>
                 <span>Name: {name}</span>
                 <span>User Name: {username}</span>

@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
-import Card from "./Components/Card/Card";
+import Card from "./Components/Card";
+import Input from "./Components/Input";
 
 import './App.css';
 
@@ -38,14 +39,23 @@ function App() {
         })
     })
 
+    const [value, setValue] = useState('')
+
+    const filteredAuthors = merge.filter(author => {
+        return author.name.toLowerCase().includes(value.toLowerCase())
+    })
+
     return (
         <>
             <form>
-                <input type="text" placeholder={'Filter by author...'}/>
+                <Input 
+                    placeholder={'Filter by author...'}
+                    onChange={e => setValue(e.target.value)}
+                />
             </form>
             <div className="content">
                 {
-                    Object.values(merge).map(({body, title, id, name, username, email, ...props}) => <Card
+                    Object.values(filteredAuthors).map(({body, title, id, name, username}) => <Card
                             key={id}
                             name={name}
                             username={username}
